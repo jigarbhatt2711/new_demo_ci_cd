@@ -24,6 +24,7 @@ jobs:
           POSTGRES_PASSWORD: password
     env:
       RAILS_ENV: test
+      host: localhost'
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
