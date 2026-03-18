@@ -20,12 +20,12 @@ jobs:
           - "5432:5432"
         env:
           POSTGRES_DB: rails_test
-          POSTGRES_USER: jigar
-          POSTGRES_PASSWORD: jigar
+          POSTGRES_USER: ${{ secrets.DB_USERNAME }}
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
     env:
       RAILS_ENV: test
       host: localhost
-      DATABASE_URL: "postgres://jigar:jigar@localhost:5432/rails_test"
+      DATABASE_URL: "postgres://${{ secrets.DB_USERNAME }}:${{ secrets.DB_PASSWORD }}@localhost:5432/rails_test"
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout code
