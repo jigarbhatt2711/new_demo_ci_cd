@@ -2,6 +2,25 @@
 
 <%= render @product %>
 
+<% if @product.images.any? %>
+  <h1>Images</h1>
+  <p>
+    <% @product.images.each do |img| %>
+      <%= image_tag url_for(img) %><br>
+      <strong>filename:<%= img.filename %></strong><br>
+      <strong>content_type:<%= img.content_type %></strong><br>
+      <strong>service_name:<%= img.service_name %></strong><br>
+      <strong>size:<%= number_to_human_size img.byte_size %></strong><br>
+      <strong>URL: <%#= link_to img.url, img.url %></strong>
+    <% end %>
+  </p>
+<% end %>
+
+<div>
+  Get Blob <%=  @product.images.last.blob.inspect %><br><br>
+  Get attachments <%=  @product.images.last.attachments.inspect %>
+</div>
+
 <div>
   <%= link_to "Edit this product", edit_product_path(@product) %> |
   <%= link_to "Back to products", products_path %>

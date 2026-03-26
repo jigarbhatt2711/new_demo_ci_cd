@@ -8,11 +8,4 @@
     <strong>Descrption:</strong>
     <%= product.descrption %>
   </p>
-
-  <p>
-    <strong>Images:</strong>
-    <% product.images.each do |img| %>
-      <%= image_tag url_for(img) %><br>
-    <% end %>
-  </p>
 </div>
