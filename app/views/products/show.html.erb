@@ -16,10 +16,12 @@
   </p>
 <% end %>
 
+<% if @product.images.attached? %>
 <div>
   Get Blob <%=  @product.images.last.blob.inspect %><br><br>
   Get attachments <%=  @product.images.last.attachments.inspect %>
 </div>
+<% end %>
 
 <div>
   <%= link_to "Edit this product", edit_product_path(@product) %> |
